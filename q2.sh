@@ -2,9 +2,11 @@
 
 file=$1
 
-while read line
-do 
-  
-  echo $line | awk 'BEGIN{FS="~"} {printf("%s said that \"%s\"\n ",$2, $1)}' >> speech.txt
+grep . $1 > lol.txt
 
-done <$1
+while read line 
+do 
+  echo $line | awk 'BEGIN{FS="~"} {printf("%s said that \"%s\"\n ",$2, $1)}' >> speech.txt
+done <lol.txt
+
+rm lol.txt
